@@ -7,7 +7,7 @@ class InitApp {
 }
 InitApp.$inject = [];
 
-angular.module('app',[
+angular.module('app-module',[
   'LocalStorageModule',
   'app-templates'
 ]).run(InitApp);

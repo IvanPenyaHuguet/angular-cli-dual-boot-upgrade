@@ -17,6 +17,9 @@ import './ajs-main';
 import 'angular-mocks';
 
 // Then we find all the tests.
-const context = require.context('./', true, /\.spec\.ts$/);
+const context = import.meta.webpackContext?.(
+  './',
+{ recursive: true, regExp: /\.spec\.ts$/ }
+);
 // And load the modules.
-context.keys().map(context);
+if(context) context.keys().map(context);
