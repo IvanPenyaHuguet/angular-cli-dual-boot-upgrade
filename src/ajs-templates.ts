@@ -13,6 +13,7 @@ angular.module('app-templates', []).run(['$templateCache', ($templateCache: any)
   }
 
   const modules = requireAll(
+      // import.meta.webpackContext with Angular >= 15, require.context otherwise with Angular < 15
       import.meta.webpackContext?.(
         './ajs',
       { recursive: true, regExp: /^(?:(?!\.component).)*\.html$/ }

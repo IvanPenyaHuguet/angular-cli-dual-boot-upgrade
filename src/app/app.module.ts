@@ -1,3 +1,4 @@
+import { RootScopeProvider } from './../ajs/upgrade-utilities/root-scope-bridge';
 import { DoBootstrap, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { UpgradeModule } from '@angular/upgrade/static';
@@ -8,10 +9,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './feature/app-component/app.component';
 
 // Fixes ivy aot compilation: https://github.com/angular/angular/issues/37102
-const downgradedAppComponents: any[] = [];
+const downgradedAppComponents: any[] = [
+  AppComponent
+];
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    ...downgradedAppComponents
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -20,7 +25,9 @@ const downgradedAppComponents: any[] = [];
     ReactiveFormsModule,
     BrowserAnimationsModule
   ],
-  providers: []
+  providers: [
+    RootScopeProvider
+  ]
 })
 export class AppModule implements DoBootstrap {
   static components = [...downgradedAppComponents];

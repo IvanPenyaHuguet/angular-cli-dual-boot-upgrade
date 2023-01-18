@@ -18,6 +18,6 @@ const options = {
 
 const inject: string[] = [];
 
-const mod = angular.module('app-module');
+const mod = angular.module('components-module', []);
 options.controller.$inject = inject;
 mod.component(selector, options);

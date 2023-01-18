@@ -17,6 +17,7 @@ import './ajs-main';
 import 'angular-mocks';
 
 // Then we find all the tests.
+// import.meta.webpackContext with Angular >= 15, require.context otherwise with Angular < 15
 const context = import.meta.webpackContext?.(
   './',
 { recursive: true, regExp: /\.spec\.ts$/ }

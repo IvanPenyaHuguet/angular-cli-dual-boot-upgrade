@@ -9,6 +9,7 @@ InitApp.$inject = [];
 
 angular.module('app-module',[
   'LocalStorageModule',
-  'app-templates'
+  'app-templates',
+  'components-module'
 ]).run(InitApp);
 
